@@ -1,0 +1,100 @@
+.nk-pagination {
+    width: 100%;
+    background-color: #fff;
+    padding: 20px 0;
+
+    &.nk-pagination-nobg {
+        background-color: transparent;
+    }
+
+    // links
+    &,
+    .container {
+        display: table;
+
+        left: -15px;
+        right: -15px;
+
+        > a {
+            display: inline-block;
+            vertical-align: middle;
+            color: $color_titles;
+            text-transform: uppercase;
+            font-size: 0.97rem;
+            text-decoration: none;
+            padding: 19px;
+            transition: .5s opacity;
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+        > span {
+            display: inline-block;
+            vertical-align: middle;
+            color: $color_titles;
+            text-transform: uppercase;
+            font-size: 0.97rem;
+            padding: 19px;
+        }
+
+        // arrows
+        .nk-pagination-prev,
+        .nk-pagination-next {
+            display: table-cell;
+            min-width: 190px;
+
+            > span {
+                vertical-align: middle;
+                font-size: 1.6rem;
+                line-height: 1;
+                margin-top: -1px;
+            }
+        }
+        .nk-pagination-prev {
+            text-align: left;
+            padding-left: 0;
+
+            > span {
+                margin-left: -8px;
+            }
+        }
+        .nk-pagination-next {
+            text-align: right;
+            padding-right: 0;
+
+            > span {
+                margin-right: -8px;
+            }
+        }
+
+        .nk-pagination-center {
+            display: table-cell;
+            width: 100%;
+        }
+
+        // mobile
+        @media #{$media_smaller_sm} {
+            .nk-pagination-prev,
+            .nk-pagination-next {
+                font-size: 0;
+                min-width: 60px;
+
+                > span {
+                    font-size: 1.6rem;
+                }
+            }
+        }
+    }
+
+    // position
+    &.nk-pagination-center {
+        text-align: center;
+    }
+    &.nk-pagination-left {
+        text-align: left;
+    }
+    &.nk-pagination-right {
+        text-align: right;
+    }
+}

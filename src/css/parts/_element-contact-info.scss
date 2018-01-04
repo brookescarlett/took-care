@@ -1,0 +1,16 @@
+.nk-contact-info {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    > li + li {
+        margin-top: 12px;
+    }
+
+    > li {
+        > strong {
+            color: $color_titles;
+            padding-right: 5px;
+        }
+    }
+}

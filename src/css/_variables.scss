@@ -1,0 +1,58 @@
+// main colors
+$color_main_1: #1140c9;
+
+$color_text: #5f5f5f;
+$color_text_blog: #4b4b4b;
+$color_titles: #171717;
+$color_bg: #f6f6f6;
+$color_bg_footer: #ebebeb;
+
+// dark colors
+$color_dark_1: #252525;
+$color_dark_2: lighten($color_dark_1, 4%);
+$color_dark_3: lighten($color_dark_1, 8%);
+$color_dark_4: lighten($color_dark_1, 12%);
+
+// gray colors
+$color_gray_1: #FAFAFA;
+$color_gray_2: darken($color_gray_1, 1%);
+$color_gray_3: darken($color_gray_1, 2%);
+$color_gray_4: darken($color_gray_1, 3%);
+
+// main colors list
+$colors: (
+    "main-1"  : $color_main_1,
+    "white"   : #fff,
+    "black"   : #000,
+    "dark-1"  : $color_dark_1,
+    "dark-2"  : $color_dark_2,
+    "dark-3"  : $color_dark_3,
+    "dark-4"  : $color_dark_4,
+    "gray-1"  : $color_gray_1,
+    "gray-2"  : $color_gray_2,
+    "gray-3"  : $color_gray_3,
+    "gray-4"  : $color_gray_4
+);
+
+// fonts
+$font_headings: 'Playfair Display', serif;
+$font_body: 'Work Sans', sans-serif;
+$html_font_size: 15px;
+$body_line_height: 1.65;
+$body_letter_spacing: 0.004em;
+
+// media variables
+$media_xxs:           '(max-width: 575px)';
+$media_xs:            '(max-width: 767px)';
+$media_sm:            '(min-width: 767px) and (max-width: 991px)';
+$media_md:            '(min-width: 992px) and (max-width: 1199px)';
+$media_lg:            '(min-width: 1200)';
+
+// additional variables
+$media_smaller_xs:    '(max-width: 767px)';
+$media_smaller_sm:    '(max-width: 991px)';
+$media_smaller_md:    '(max-width: 1199px)';
+$media_larger_xs:     '(min-width: 576px)';
+$media_larger_sm:     '(min-width: 768px)';
+$media_larger_md:     '(min-width: 992px)';
+$media_larger_lg:     '(min-width: 1200px)';

@@ -1,0 +1,169 @@
+.nk-team-block {
+    position: relative;
+    background-color: darken($color_gray_4, 9%);
+    z-index: 0;
+
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+        width: 100%;
+    }
+
+    .nk-team-member-photo {
+        display: none;
+    }
+
+    // backgrounds (generated in JS)
+    .nk-team-block-backgrounds > div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s opacity, .5s visibility;
+        background-position: 50% 50%;
+        background-size: cover;
+        z-index: -1;
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    // each member block
+    .nk-team-member {
+        position: relative;
+        width: 340px;
+        height: 340px;
+        padding: 49px;
+        padding-top: 221px;
+        float: left;
+        border: 1px solid #ededed;
+        border-top: none;
+        margin-left: -1px;
+        margin-bottom: -1px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: .4s padding-top, .4s background-color;
+
+        .nk-team-member-letter {
+            position: absolute;
+            top: 51px;
+            left: 38px;
+            font-size: 10.7rem;
+            line-height: 1;
+            font-weight: bold;
+            color: #e6e6e6;
+            transition: .5s opacity;
+        }
+
+        .nk-team-member-post {
+            position: relative;
+            text-transform: uppercase;
+            color: $color_titles;
+            font-size: 0.97rem;
+            margin-top: 4px;
+            padding-bottom: 19px;
+            margin-bottom: 19px;
+            transition: .5s opacity;
+
+            &:after {
+                content: '';
+                position: absolute;
+                display: block;
+                width: 30px;
+                border-bottom: 1px solid;
+                bottom: 0;
+                left: 0;
+                opacity: 0;
+                transition: .5s opacity;
+            }
+        }
+
+        .nk-team-member-name {
+            font-family: $font_headings;
+            color: $color_titles;
+            font-size: 1.69rem;
+        }
+
+        .nk-team-member-bio {
+            opacity: 0;
+            transition: .5s opacity;
+        }
+
+        .nk-team-member-social {
+            opacity: 0;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            margin-left: -6px;
+            margin-top: 18px;
+            transition: .5s opacity;
+
+            > li {
+                float: left;
+
+                a {
+                    font-size: 1.13rem;
+                    color: #999999;
+                    transition: .5s color;
+                    padding: 7px;
+                }
+                a:hover,
+                a.hover {
+                    color: $color_titles;
+                }
+            }
+
+            &:after {
+                content: '';
+                display: table;
+                width: 100%;
+                clear: both;
+            }
+        }
+
+        // active member
+        &:hover {
+            background-color: darken(#ededed, 5%);
+        }
+        &.active {
+            background-color: #ededed;
+            padding-top: 90px;
+
+            .nk-team-member-letter {
+                opacity: 0;
+            }
+            .nk-team-member-bio,
+            .nk-team-member-social,
+            .nk-team-member-post:after {
+                opacity: 1;
+            }
+        }
+    }
+    .nk-team-member:nth-child(2n + 3) {
+        clear: left;
+    }
+
+    // mobile
+    @media #{$media_smaller_md} {
+        .nk-team-block-backgrounds {
+            position: relative;
+            width: 100%;
+            padding-top: 56%;
+        }
+
+        .nk-team-member {
+            width: 50%;
+        }
+    }
+    @media #{$media_smaller_sm} {
+        .nk-team-member {
+            width: 100%;
+        }
+    }
+}

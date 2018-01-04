@@ -1,0 +1,128 @@
+
+.nk-btn {
+    display: inline-block;
+    border: 0;
+    padding: 18px 25px;
+    font-size: 0.96rem;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    text-transform: uppercase;
+    transition: .5s all;
+    background-color: $color_dark_1;
+
+    &,
+    &:hover,
+    &.hover,
+    &:active,
+    &.active,
+    &:focus {
+        color: #fff;
+        text-decoration: none;
+    }
+    &:hover,
+    &.hover,
+    &:active,
+    &.active,
+    &:focus {
+        background-color: $color_dark_4;
+    }
+}
+
+// sizes
+.nk-btn-xs {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+
+    // outline fix
+    &.nk-btn-outline {
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+}
+.nk-btn-sm {
+    padding: 10px 20px;
+
+    // outline fix
+    &.nk-btn-outline {
+        padding-top: 9px;
+        padding-bottom: 9px;
+    }
+}
+.nk-btn-lg {
+    padding: 14px 30px;
+
+    // outline fix
+    &.nk-btn-outline {
+        padding-top: 13px;
+        padding-bottom: 13px;
+    }
+}
+
+// long
+&.nk-btn-long {
+    padding-left: 43px;
+    padding-right: 43px;
+
+    &.nk-btn-xs {
+        padding-left: 36px;
+        padding-right: 36px;
+    }
+    &.nk-btn-sm {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    &.nk-btn-lg {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+// block
+.nk-btn-block {
+    display: block;
+    width: 100%;
+}
+
+
+/* Button Style 2 */
+.nk-btn-2 {
+    display: inline-block;
+    position: relative;
+    padding: 0 3px;
+    font-size: 0.96rem;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    text-transform: uppercase;
+    color: $color_titles;
+
+    &:after {
+        content: '';
+        position: absolute;
+        left: 3px;
+        bottom: -2px;
+        border-bottom: 1px solid;
+        opacity: 0.2;
+        width: 40px;
+        transition: .5s transform, .5s opacity;
+        transform-origin: 0 0;
+    }
+
+    &:hover:after,
+    &.hover:after {
+        opacity: 0.5;
+        transform: scaleX(1.2);
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: $color_titles;
+        text-decoration: none;
+    }
+}

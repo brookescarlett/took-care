@@ -1,0 +1,45 @@
+/* Placeholders */
+::placeholder,
+.form-control::placeholder {
+    color: #858585;
+    opacity: 1;
+}
+
+/* From Style 1 */
+.form-control {
+    padding: 16px 22px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.2;
+    background-color: #fff;
+    border: none;
+    border-radius: 0;
+}
+select.form-control {
+    padding: 6px 20px;
+}
+
+/* Validation */
+div.nk-error {
+    font-weight: normal;
+    background-color: transparent;
+    color: red;
+    padding: 0;
+    margin: 5px 0;
+    z-index: 1;
+}
+.form-control.nk-error,
+.nk-form-style-1 .form-control.nk-error {
+    background-color: rgba(red, 0.4);
+}
+
+.nk-form-response-success {
+    display: none;
+    color: green;
+    margin-bottom: 10px;
+}
+.nk-form-response-error {
+    display: none;
+    color: red;
+    margin-bottom: 10px;
+}

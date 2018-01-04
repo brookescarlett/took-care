@@ -1,0 +1,43 @@
+// blockquote
+blockquote {
+    font-family: $font_headings;
+    color: $color_titles;
+    font-size: 1.348rem;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+}
+
+// style 1
+blockquote.nk-blockquote-style-1 {
+    display: block;
+    text-align: center;
+    font-style: italic;
+    max-width: 715px;
+    margin: 0 auto;
+
+    > p {
+        font-size: 1.685rem;
+        line-height: 1.45;
+        margin-bottom: 1.15rem;
+
+        &:before,
+        &:after {
+            font-size: 2.2rem;
+            line-height: 1;
+        }
+        &:before {
+            content: '“ ';
+        }
+        &:after {
+            content: ' ”';
+        }
+    }
+
+    cite {
+        font-family: $font_body;
+        font-size: 0.96rem;
+        font-weight: 500;
+        font-style: normal;
+        text-transform: uppercase;
+    }
+}

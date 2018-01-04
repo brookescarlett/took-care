@@ -1,0 +1,129 @@
+.nk-fullpage-portfolio {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    .nk-fullpage-item {
+        display: none;
+    }
+
+    .nk-fullpage-bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: 50% 50%;
+        z-index: 0;
+    }
+
+
+    .nk-fullpage-view-button {
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+        width: 100%;
+    }
+    .nk-fullpage-content {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .nk-fullpage-item-category {
+        font-size: 0.848rem;
+        line-height: 1;
+        text-transform: uppercase;
+        font-weight: 500;
+        margin-bottom: 10px;
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: .5s color;
+
+            &:hover {
+                color: $color_titles;
+            }
+        }
+    }
+    .nk-fullpage-title a {
+        color: inherit;
+        transition: .5s opacity;
+        text-decoration: none;
+
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+}
+
+// right nav
+.nk-fullpage-nav {
+    position: fixed;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%) translateX(100%);
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s visibility, .3s opacity, .3s transform;
+    z-index: 2;
+
+    &.active {
+        transform: translateY(-50%) translateX(0);
+        visibility: visible;
+        opacity: 1;
+    }
+
+    > li {
+        position: relative;
+        cursor: pointer;
+        width: 20px;
+        text-transform: uppercase;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        color: $color_titles;
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            background-color: $color_titles;
+            top: 50%;
+            left: 110%;
+            width: 100px;
+            height: 1px;
+            transform: scale(0);
+            transition: .5s transform;
+        }
+        &.active:after {
+            transform: scale(1);
+        }
+    }
+}
+
+// slide number
+.nk-fullpage-number {
+    display: block;
+    position: fixed;
+    font-family: $font_headings;
+    font-size: 3.5rem;
+    color: #C8C8C8;
+    line-height: 1;
+    font-weight: bold;
+    right: 50px;
+    bottom: 50px;
+    z-index: 1;
+}
