@@ -1,1 +1,27 @@
-/* PLACE YOU CUSTOM STYLES IN THIS FILE */
+.nk-header-title.nk-header-title-full {
+    padding-top: 0;
+    min-height: 550px;
+    height: 100vh;
+}
+
+.nk-header-title.nk-header-title-full .nk-header-table {
+    height: 100%;
+    min-height: 550px;
+}
+
+.nk-header-title.nk-header-title-lg .nk-header-table {
+    height: 560px;
+}
+
+.nk-navbar {
+    position: relative;
+    padding: 20px 0;
+    font-size: 0.96rem;
+    z-index: 1000;
+    transition: .3s background-color;
+    will-change: background-color;
+<<<<<<< HEAD
+}
+=======
+}
+>>>>>>> 9a3fda8404696d87677b6e9001a777a465e17bd3

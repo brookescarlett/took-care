@@ -1,67 +1,42 @@
 <?php
-    $from = 'Khaki Contact Form';
-    $to = 'nkdevinfo@gmail.com';
-    $subject = 'Message from Khaki contact form';
 
-    function errorHandler ($message) {
-        die(json_encode(array(
-            'type'     => 'error',
-            'response' => $message
-        )));
+// configure
+$from = 'Demo contact form <demo@domain.com>';
+$sendTo = 'xobsyxo@mac.com';
+$subject = 'New message from contact form';
+$fields = array('name' => 'Name', 'surname' => 'Surname', 'phone' => 'Phone', 'email' => 'Email', 'message' => 'Message'); // array variable name => Text to appear in email
+$okMessage = 'Contact form successfully submitted. Thank you, I will get back to you soon!';
+$errorMessage = 'There was an error while submitting the form. Please try again later';
+
+// let's do the sending
+
+try
+{
+    $emailText = "You have new message from contact form\n=============================\n";
+
+    foreach ($_POST as $key => $value) {
+
+        if (isset($fields[$key])) {
+            $emailText .= "$fields[$key]: $value\n";
+        }
     }
 
-    function successHandler ($message) {
-        die(json_encode(array(
-            'type'     => 'success',
-            'response' => $message
-        )));
-    }
+    mail($sendTo, $subject, $emailText, "From: " . $from);
 
-    // remove it if your php finally configured
-    successHandler('This is demo message from PHP');
+    $responseArray = array('type' => 'success', 'message' => $okMessage);
+}
+catch (\Exception $e)
+{
+    $responseArray = array('type' => 'danger', 'message' => $errorMessage);
+}
 
-    if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']  == 'XMLHttpRequest') {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $message = $_POST['message'];
-        $body = "From: $name\n E-Mail: $email\n Message:\n $message";
-
-        $pattern = '/[\r\n]|Content-Type:|Bcc:|Cc:/i';
-        if (preg_match($pattern, $name) || preg_match($pattern, $email) || preg_match($pattern, $message)) {
-            errorHandler('Header injection detected.');
-        }
-
-        // Check if name has been entered
-        if (!$_POST['name']) {
-            errorHandler('Please enter your name.');
-        }
-
-        // Check if email has been entered and is valid
-        if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            errorHandler('Please enter a valid email address.');
-        }
-
-        // Check if message has been entered
-        if (!$_POST['message']) {
-            errorHandler('Please enter your message.');
-        }
-
-        // prepare headers
-        $headers  = 'MIME-Version: 1.1' . PHP_EOL;
-        $headers .= 'Content-type: text/html; charset=utf-8' . PHP_EOL;
-        $headers .= "From: $name <$email>" . PHP_EOL;
-        $headers .= "Return-Path: $to" . PHP_EOL;
-        $headers .= "Reply-To: $email" . PHP_EOL;
-        $headers .= "X-Mailer: PHP/". phpversion() . PHP_EOL;
-
-        // If there are no errors, send the email
-        $result = @mail($to, $subject, $body, $headers);
-        if ($result) {
-            successHandler('Thank You! I will be in touch');
-        } else {
-            errorHandler('Sorry there was an error sending your message. Please check server PHP mail configuration.');
-        }
-    } else {
-        errorHandler('Allowed only XMLHttpRequest.');
-    }
-?>
+if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+    $encoded = json_encode($responseArray);
+    
+    header('Content-Type: application/json');
+    
+    echo $encoded;
+}
+else {
+    echo $responseArray['message'];
+}
